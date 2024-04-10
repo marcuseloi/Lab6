@@ -5,6 +5,14 @@ def encoder(x):
         num=str(num)
         encode_int = encode_int+num
     return x
+def decode(encode_int):
+    original_code = ""
+    for num in encode_int:
+        num=(int(num)-3)%10
+        num=str(num)
+        original_code=original_code+num
+    return original_code
+
 
 
 if __name__ == '__main__':
@@ -20,12 +28,12 @@ if __name__ == '__main__':
         if option == 1:
             x = input("Please enter your password to encode: ")
             encode_int = encoder(x)
-            print("Your password has been encoded and stored\n")
+            print("Your password has been encoded and stored!\n")
 
         if option == 2:
-            x = input("Please enter you")
-            print(encode_int)
-            #print(f'The encoded password is {encode_int}, and the original password is {x}\n')
+            decoded=decode(encode_int)
+            print(decoded)
+            print(f"The encoded password is {x}, and the original password is {decoded}.")
 
         if option == 3:
             break
